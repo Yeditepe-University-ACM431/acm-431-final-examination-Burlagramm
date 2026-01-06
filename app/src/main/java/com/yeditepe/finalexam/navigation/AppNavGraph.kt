@@ -15,18 +15,44 @@ fun AppNavGraph() {
     ) {
 
         // TODO 1: Add composable for "tasks"
+          composable("tasks") { TaskListScreen() }
          // TODO 2: Add composable for "taskDetail/{title}"
-@Composable
-fun NavGraph(navController: NavHostController, viewModel: TaskViewModel) {
-    NavHost(
-        navController = navController,
-        startDestination = "list" 
-    ) {
-        composable("list") {
-            TaskDetailScreen(navController = navController, viewModel = viewModel)
-        }
+         
+            composable("taskDetail/{title}") { backStackEntry ->
+            val title = backStackEntry.arguments?.getString("title") ?: ""
+            TaskDetailScreen(title)
 
-       
-    
+@Composable
+fun TaskRow(task: Task, navController: NavController) {
+    Text(
+        text = task.title,
+        modifier = Modifier.clickable {
+            // TODO 3: Navigate to detail screen with task title [cite: 91]
+            navController.navigate("taskDetail/${task.title}")
+        }
+    )
+}
+
+@Composable
+fun TaskDetailScreen(title: String) {
+    Column(modifier = Modifier.padding(16.dp)) {
+        // TODO 4: Display task title [cite: 103]
+        Text(text = "Task Detail: $title", style = MaterialTheme.typography.headlineMedium)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
