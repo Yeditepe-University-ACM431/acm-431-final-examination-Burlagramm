@@ -15,6 +15,7 @@ fun TaskItemScreen() {
 
     // TODO 1: Create a mutable state to hold completion status (Boolean)
     // Initial value should be false
+    val isCompeleted = by remember()
 
     Column(modifier = Modifier.padding(16.dp)) {
 
@@ -25,6 +26,7 @@ fun TaskItemScreen() {
 
         // TODO 2: Show text "Completed" or "Not Completed"
         // depending on completion state
+        
 
         Button(
             onClick = {
@@ -40,4 +42,7 @@ fun TaskItemScreen() {
 @Composable
 fun TaskItemPreview() {
     // TODO: Call TaskItemScreen
+    val mockViewModel = TaskViewModel()
+  
+    TaskItemScreen(navController = mockNavController, viewModel = mockViewModel)
 }
