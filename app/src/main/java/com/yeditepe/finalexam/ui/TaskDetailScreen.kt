@@ -9,7 +9,16 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun TaskDetailScreen(title: String) {
 
-    Column(modifier = Modifier.padding(16.dp)) {
+    Column(modifier = Modifier.padding(16.dp)  {
         // TODO 4: Display task title
-    }
+             Text(
+                    text = task.title,
+                    style = TextStyle(
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 18.sp,
+                        color = Color(0xFF625b71)
+                    )
+                )
+        
+    
 }
